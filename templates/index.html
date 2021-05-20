@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+<style>
+  body {
+    background-color: #0099cc;
+    background-size: cover;
+}
+html{
+    height: 100%;
+}
+.heading {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    height: 120px;
+    font-size: 28px;
+    margin: 10px 0;
+}
+.content{
+    color: white;
+    font-size: 35px;
+}
+.button{
+    padding: 15px;
+    margin:auto;
+    font-size: 10px;
+    
+}
+#text{
+    padding: 5px 8px;
+    font-size: 20px;
+}
+#submit{
+    background-color: #555555;
+    font-size: 20px;
+    padding: 5px 8px;
+}
+</style>
+
+
+<body>
+ <div class="login">
+   <div class="heading">
+     <h1>Predict Bitcoin Price</h1>
+   </div>
+    <h2 class="content">Predict Bitcoin Price Using Twitter Sentiment Analysis</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <div class="button">
+     <form action="{{ url_for('predict')}}" method="post">
+        <input id="text" type="text" name="TweetonBitcoin" placeholder="Enter Tweet" required="required" />
+
+        <button id="submit" type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    </div>
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
